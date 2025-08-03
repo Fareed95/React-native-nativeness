@@ -1,27 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// App.tsx
+import React from 'react';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import NativeHello from './specs/NativeHello';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+function App(): React.JSX.Element {
+  const [message, setMessage] = React.useState<string>('');
+
+  React.useEffect(() => {
+    try {
+      const result = NativeHello.getHello();
+      setMessage(result);
+    } catch (err) {
+      console.error('Error calling native module:', err);
+    }
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>Native says: {message}</Text>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 20,
   },
 });
 
