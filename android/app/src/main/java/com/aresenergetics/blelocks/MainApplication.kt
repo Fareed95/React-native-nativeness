@@ -1,4 +1,4 @@
-package com.app
+package com.aresenergetics.blelocks;
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -9,7 +9,7 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
-import com.app.NativeHelloPackage;
+import com.aresenergetics.blelocks.NativeBleManagerPackage;
 
 class MainApplication : Application(), ReactApplication {
 
@@ -17,7 +17,7 @@ class MainApplication : Application(), ReactApplication {
       object : DefaultReactNativeHost(this) {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
-            add(NativeHelloPackage());
+            add(NativeBleManagerPackage());
             }
 
         override fun getJSMainModuleName(): String = "index"

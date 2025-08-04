@@ -1,4 +1,4 @@
-package com.app
+package com.aresenergetics.blelocks;
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
