@@ -96,7 +96,7 @@ public class NativeBleManagerModule extends NativeBleManagerSpec {
                         public void onResponse(Response<String> response) {
                             if (response.isSuccessful()) {
                                 Log.d("BLE_LOCK", "✅ Lock opened successfully");
-                                handler.postDelayed(() -> closeLock(authAction, promise), 15000);
+                                handler.postDelayed(() -> closeLock(authAction, promise), 5000);
                             } else {
                                 Log.e("BLE_LOCK", "❌ Lock open failed: " + response.toString());
                                 promise.reject("LOCK_FAILED", "Open lock failed");
